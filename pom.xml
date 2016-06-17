@@ -11,6 +11,7 @@
 
     <properties>
         <kafka.version>0.10.0.0</kafka.version>
+        <commons.dbcp>2.1</commons.dbcp>
     </properties>
 
     <build>
@@ -57,6 +58,13 @@
             <groupId>org.apache.kafka</groupId>
             <artifactId>connect-json</artifactId>
             <version>${kafka.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-dbcp2</artifactId>
+            <version>${commons.dbcp}</version>
         </dependency>
 
     </dependencies>

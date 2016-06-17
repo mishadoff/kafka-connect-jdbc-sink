@@ -1,5 +1,6 @@
 package com.mishadoff.connector;
 
+import com.mishadoff.connector.jdbc.IJdbcConverter;
 import org.apache.kafka.common.config.ConfigDef;
 import org.apache.kafka.common.utils.AppInfoParser;
 import org.apache.kafka.connect.connector.Task;
@@ -14,8 +15,12 @@ import java.util.Map;
 
 public class JdbcSinkConnector extends SinkConnector {
 
-    // TODO is it possible to get version from maven?
+    // TODO remove hardcoded property
     public static final String VERSION = "1.0.0";
+
+    public static final String INTERNAL_JDBC_CONVERTER = "_internal.jdbc.converter";
+    public static final String INTERNAL_POOL = "_internal.pool";
+
     private static final Logger logger = LoggerFactory.getLogger(JdbcSinkConnector.class);
 
     // connector specific properties
@@ -51,7 +56,6 @@ public class JdbcSinkConnector extends SinkConnector {
     @Override
     public void stop() {
         // JUST STOP, DO NOTHING
-        // TODO cleanup connection pool?
     }
 
     @Override
